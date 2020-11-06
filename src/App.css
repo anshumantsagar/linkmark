@@ -1,0 +1,44 @@
+/* .App {
+  text-align: center;
+} */
+
+a {
+  text-decoration: none;
+  color: black;
+  margin-right: 15px;
+}
+
+.logo{
+  height: 65px;
+}
+
+.login {
+  width: 50%;
+  margin-left: 25%;
+  margin-top: 5%;
+}
+
+.links {
+  margin: 5%;
+}
+
+.errors {
+  color: red;
+}
+
+.singleCred {
+  border: 1px solid #eee;
+  width: 50%;
+  margin-left: 25%;
+  margin-top: 15px;
+  padding: 10px;
+}
+
+.singleCred button {
+  margin: 15px 0 0 15px;
+}
+/* .credButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+} */
