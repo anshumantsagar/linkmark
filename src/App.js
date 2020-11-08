@@ -1,12 +1,14 @@
 import React, {Component} from 'react'
 import './App.css';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Redirect } from 'react-router-dom';
 
 //components
 import Login from './components/login';
 import Navbar from './components/navbar';
 import Signup from './components/signup';
 import Links from './components/links';
+import PublicRoute from './components/routes/public';
+import ProtectedRoute from './components/routes/protected';
 
 class App extends Component {
   render() {
@@ -14,9 +16,10 @@ class App extends Component {
       <div className="App">
         <Navbar/>
         <Switch>
-          <Route exact path='/' component={Login}/>
-          <Route path='/signup' component={Signup}/>
-          <Route path='/links' component={Links}/>
+          <PublicRoute path='/login' component={Login} redirectRoute='/links'/>
+          <PublicRoute path='/signup' component={Signup} redirectRoute='/links'/>
+          <ProtectedRoute path='/links' component={Links} redirectRoute='/login'/>
+          <Redirect from='/' to='/login'/>
         </Switch>
       </div>
     );

@@ -9,7 +9,7 @@ const PublicRoutes = ({ component: Component, ...rest }) => {
     <Route
       {...rest}
       render={props =>
-        !myReduxState.reducer.userData.token ? (
+        !myReduxState.reducer.token ? (
           <Component {...props} />
         ) : (
           <Redirect to={{pathname: rest.redirectRoute, extras: {...rest.location}}} />

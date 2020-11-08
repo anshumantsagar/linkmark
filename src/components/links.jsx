@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Label, Input} from 'reactstrap';
 import axios from 'axios';
-
+import { connect } from 'react-redux';
+import { logout } from '../redux/actions/linkmark-action-creators';
 
 class Links extends Component {
     state = {
@@ -140,6 +141,7 @@ class Links extends Component {
         return (
             <div className='links'>
                 <Button onClick={() => this._toggleModal(0)}>Add New Account</Button>
+                <Button onClick={() => this.props.logoutUser()}>Log Out</Button>
                 <div>
                     {accountsList}
                 </div>
@@ -177,4 +179,10 @@ class Links extends Component {
     }
 }
 
-export default Links;
+const mapDispatchToProps = dispatch => {
+    return {
+        logoutUser : () => dispatch(logout())
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Links);
